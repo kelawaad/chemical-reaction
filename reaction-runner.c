@@ -28,6 +28,7 @@ make_water()
 void*
 hydrogen_thread(void *arg)
 {
+
 	struct reaction *reaction = (struct reaction*)arg;
 	reaction_h(reaction);
 	__sync_add_and_fetch(&hydrogen_atoms_bonded, 1);
@@ -77,7 +78,7 @@ main(int argc, char** argv)
 	alarm(10);
 
 	int i;
-	const int total_atoms = 200;
+	const int total_atoms = 10000;
 	int hydrogen_atoms = 0;
 	int oxygen_atoms = 0;
 	int hydrogen_pct = atoi(argv[1]);
